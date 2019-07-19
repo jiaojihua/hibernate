@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-26 23:18:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="hibernate.Student" table="STUDENT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="grade" type="java.lang.String">
+            <column name="GRADE" />
+        </property>
+        <many-to-one name="school" class="hibernate.School"  fetch="join" cascade="save-update" >
+            <column name="SID"  />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
